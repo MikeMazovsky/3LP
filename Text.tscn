@@ -1,0 +1,57 @@
+[gd_scene format=2]
+
+[node name="Node" type="Node"]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( 0.183891, -1.26941, 123.248, -1.26941, 123.248, 45.6372, -0.343147, 45.6372 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 200.0
+_sections_unfolded = [ "Invert", "Pause", "Texture", "Transform", "Visibility" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 95.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 1
+text = "tzsrkxxctu.;yivylkjfd"
+scroll_active = true
+scroll_following = true
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Timer" type="Timer" parent="Polygon2D" index="1"]
+
+pause_mode = 2
+process_mode = 1
+wait_time = 0.01
+one_shot = true
+autostart = false
+_sections_unfolded = [ "Pause" ]
+
+

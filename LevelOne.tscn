@@ -1,0 +1,140 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sheets/Wolf0011.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/GG/Wolf021.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/GG/Wolf003.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/GG/Wolf005.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/GG/Wolf8.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/GG/Wolf0011.png" type="Texture" id=7]
+[ext_resource path="res://Test.tres" type="TileSet" id=8]
+[ext_resource path="res://Sheets/GIF2/output-0.png" type="Texture" id=9]
+[ext_resource path="res://Sheets/GIF2/output-1.png" type="Texture" id=10]
+[ext_resource path="res://Sheets/GIF2/output-2.png" type="Texture" id=11]
+[ext_resource path="res://Sheets/GIF2/output-3.png" type="Texture" id=12]
+[ext_resource path="res://Sheets/GIF2/output-4.png" type="Texture" id=13]
+[ext_resource path="res://Sheets/GIF2/output-5.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 1.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 11.6167, 10.6667 )
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="World" type="Node2D" index="0"]
+
+[node name="Player" type="KinematicBody2D" parent="." index="0"]
+
+position = Vector2( -400, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Player" index="0"]
+
+position = Vector2( 512.527, 31.7365 )
+frames = SubResource( 4 )
+animation = "Run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
+
+position = Vector2( 520.539, 21.6671 )
+scale = Vector2( 5.23403, 4.21592 )
+shape = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera2D" type="Camera2D" parent="Player" index="2"]
+
+position = Vector2( 600, 0 )
+rotation = 1.5708
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap2" type="TileMap" parent="." index="1"]
+
+position = Vector2( 0, -2.51752 )
+mode = 0
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 196608, 0, 0, 196609, 1, 0, 196610, 1, 0, 196611, 2, 0, 262158, 0, 0, 262159, 1, 0, 262160, 2, 0, 262173, 0, 0, 262174, 1, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 262180, 1, 0, 262181, 1, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262185, 1, 0, 262186, 1, 0, 262187, 2, 0, 327686, 0, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 2, 0, 327706, 0, 0, 327707, 2, 0, 393240, 0, 0, 393241, 2, 0, 458774, 0, 0, 458775, 2, 0, 524307, 0, 0, 524308, 1, 0, 524309, 2, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Node2D" type="Node2D" parent="." index="2"]
+
+show_behind_parent = true
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D" index="0"]
+
+frames = SubResource( 5 )
+animation = "default"
+frame = 1
+playing = true
+
+

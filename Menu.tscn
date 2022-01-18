@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Sheets/exit.png" type="Texture" id=2]
+[ext_resource path="res://Sheets/Start.png" type="Texture" id=3]
+[ext_resource path="res://TITLE.jpg" type="Texture" id=4]
+[ext_resource path="res://Sheets/settings_general.png" type="Texture" id=5]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 10.0
+margin_top = -100.0
+margin_right = 622.0
+margin_bottom = 743.0
+rect_scale = Vector2( 0.55, 0.62 )
+icon = ExtResource( 2 )
+flat = true
+
+[node name="Start" type="Button" parent="."]
+margin_left = 966.0
+margin_top = 80.0
+margin_right = 1116.0
+margin_bottom = 201.0
+action_mode = 0
+icon = ExtResource( 3 )
+flat = true
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 690.327, 388.77 )
+scale = Vector2( 0.970481, 0.875223 )
+texture = ExtResource( 4 )
+
+[node name="Config" type="Button" parent="."]
+margin_left = 989.0
+margin_top = 486.0
+margin_right = 1257.0
+margin_bottom = 748.0
+icon = ExtResource( 5 )
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
